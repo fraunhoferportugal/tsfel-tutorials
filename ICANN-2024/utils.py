@@ -1,5 +1,8 @@
 import os
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 units = {"Accelerometer": "m/s2", "Electromyogram": "mV", "Goniometer": "degrees"}
 # Sensor channel names
@@ -10,9 +13,10 @@ channels = ["Electromyogram 1", "Electromyogram 2", "Electromyogram 3", "Electro
             "Goniometer 2"]
 
 # Seven claseses for training and recogntion
-classes = ["walk", "curve-left", "curve-right", "sit", "sit-to-stand", "stand", "stand-to-sit"]
+classes = ["walk", "walk-curve-left", "walk-curve-right", "sit", "sit-to-stand", "stand", "stand-to-sit"]
 
-dataset_folder = "Basic_CSL_2023"
+
+dataset_folder = "New_users"
 
 # Unit conversion
 def goniometer_unit_conversion(data, vcc=3, n=16):
@@ -48,16 +52,46 @@ def get_train_test_data():
     train_data, y_train = [], []
     for fl in os.listdir(train_folder):
         df = pd.read_csv(os.path.join(train_folder, fl), names=channels)     
-        train_data += [df]# unit_conversion(df)]
+        train_data += [unit_conversion(df)]
 
         y_train += [fl.split('_')[0]]
 
-
-    test_data, ids_test = [], []
+    test_data, y_test = [], []
     for fl in os.listdir(test_folder):
         df = pd.read_csv(os.path.join(test_folder, fl), names=channels)     
-        test_data += [df] #unit_conversion(df)]
+        test_data += [unit_conversion(df)]
 
-        ids_test += [fl.split('.')[0]]
+        # ids_test += [fl.split('.')[0]]
+        y_test += [fl.split('_')[0]]
     
-    return train_data, y_train, test_data, ids_test
+    return train_data, y_train, test_data, y_test
+
+
+def plot_random_sample_by_class(train_data, y_train, label, ylim=True):
+
+    max_values = np.max([np.max(d, axis=0) for d in train_data], axis=0)
+    min_values = np.min([np.min(d, axis=0) for d in train_data], axis=0)
+
+    idx = np.random.choice(np.where(np.array(y_train) == label)[0])
+
+    df, label = train_data[idx], y_train[idx]
+
+    fig, axes = plt.subplots(nrows=12, ncols=1, figsize=(5, 10), sharex=True)
+
+    for i, column in enumerate(df.columns):
+        axes[i].plot(df.index, df[column], label=column, color="C" + str(i))
+        axes[i].legend([column], bbox_to_anchor=(1,1))
+        axes[i].axis("off")
+        if ylim:
+            axes[i].set_ylim(max_values[i], min_values[i])
+    plt.suptitle(label)
+
+    return df, label
+
+def plot_sensor_data(sample, label, sensor_name):
+    plt.plot(sample[sensor_name])
+    plt.legend([sensor_name])
+    plt.xlabel("Time / ms")
+    plt.ylabel(units[sensor_name.split(" ")[0]])
+    plt.title(label)
+
