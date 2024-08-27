@@ -201,7 +201,5 @@ spark-warehouse
 # Cruft
 .cruft.json
 
-# Dataset groundtruth
-Basic_CSL_2023/Groundtruth.txt
+# Dataset
 Basic_CSL/
-

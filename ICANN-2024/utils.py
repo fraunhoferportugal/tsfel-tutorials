@@ -16,7 +16,7 @@ channels = ["Electromyogram 1", "Electromyogram 2", "Electromyogram 3", "Electro
 classes = ["walk", "walk-curve-left", "walk-curve-right", "sit", "sit-to-stand", "stand", "stand-to-sit"]
 
 
-dataset_folder = "New_users"
+dataset_folder = "Basic_CSL"
 
 # Unit conversion
 def goniometer_unit_conversion(data, vcc=3, n=16):
