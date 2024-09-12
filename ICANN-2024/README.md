@@ -1,19 +1,6 @@
-### Clone repository and install dependencies
+# Welcome to the TSFEL tutorial at ICANN 2024!
 
-Clone this repository (requires git ssh keys)
+## Hands-on
+You can access the notebook for the hands-on part using Binder:
 
-    git clone git@github.com:fraunhoferportugal/tsfel-tutorials.git
-    cd tsfel-tutorials
-
-Create a python environment
-
-    conda create -y -n tsfel-tutorials python=3.11
-    conda activate tsfel-tutorials
-
-Install dependencies
-
-    pip install -r requirements.txt
-
-Register the environment as a Jupyter Kernel
-
-    python -m ipykernel install --user --name="tsfel-tutorials"
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fraunhoferportugal/tsfel-tutorials/master?labpath=ICANN-2024%2Ffeature_extraction_example.ipynb)
