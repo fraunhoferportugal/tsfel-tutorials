@@ -129,6 +129,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.venv-notebook/
 
 # Spyder project settings
 .spyderproject
@@ -155,7 +156,7 @@ dmypy.json
 cython_debug/
 
 # Tutorial solutions
-solutions/
+ICANN-2024/feature_extraction_example_solutions.ipynb
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
