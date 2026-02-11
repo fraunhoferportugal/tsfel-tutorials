@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
 # Dictionary containing the units of measurement for each sensor type
@@ -27,7 +28,8 @@ classes = [
 ]
 
 # Root directory for the dataset
-dataset_folder = "Basic_CSL"
+BASE_DIR = Path.cwd()
+dataset_folder = BASE_DIR.parent / "Basic_CSL"
 
 
 def goniometer_unit_conversion(data, vcc=3, n=16):
