@@ -23,7 +23,7 @@ Open the notebook and run all cells sequentially.
 ```bash
 conda create -n <environment_name> python=3.10 -y
 conda activate <environment_name>
-pip install tsfel jupyter
+pip install tsfel scikit-learn jupyter
 ```
 
 ### Clone the repository and launch Jupyter notebook
