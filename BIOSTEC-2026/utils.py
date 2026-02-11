@@ -29,7 +29,7 @@ classes = [
 
 # Root directory for the dataset
 BASE_DIR = Path.cwd()
-dataset_folder = BASE_DIR.parent / "Basic_CSL"
+dataset_folder = "../Basic_CSL"
 
 
 def goniometer_unit_conversion(data, vcc=3, n=16):
