@@ -157,6 +157,7 @@ cython_debug/
 
 # Tutorial solutions
 ICANN-2024/feature_extraction_example_solutions.ipynb
+BIOSTEC-2026/feature_extraction_example_solutions.ipynb
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
