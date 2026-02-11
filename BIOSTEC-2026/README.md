@@ -29,7 +29,7 @@ After launching:
 
 No installation required.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fraunhoferportugal/tsfel-tutorials/blob/main/BIOSTEC-2026/feature_extraction_example_colab.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fraunhoferportugal/tsfel-tutorials/blob/master/BIOSTEC-2026/feature_extraction_example_colab.ipynb)
 
 Open the notebook and run all cells sequentially.
 
